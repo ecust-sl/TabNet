@@ -1,0 +1,70 @@
+{
+  "subjects_filename": "examples/puzhongxin502/puzhongxin_subjects_fold4.json",
+  "generate_filenames": "templates",
+  "generate_filenames_kwargs": {
+    "directory": "/home/xiao/project/3DUnetCNN/Task502_Puzhongxin",
+    "feature_templates": "imagesTr/{subject}.nii.gz",
+    "target_templates": "labelsTr/{subject}.nii.gz"
+  },
+  "window": [
+    80,
+    192,
+    128
+  ],
+  "n_features": 1,
+  "optimizer": "Adam",
+  "package": "pytorch",
+  "loss": "per_channel_dice_loss",
+  "evaluation_metric": "per_channel_dice_loss",
+  "weights": null,
+  "custom_loss": true,
+  "regularized": false,
+  "reorder": true,
+  "n_epochs": 100,
+  "save_every_n_epochs": 10,
+  "initial_learning_rate": 1e-04,
+  "min_learning_rate": 1e-08,
+  "decay_factor": 0.5,
+  "decay_patience": 20,
+  "early_stopping_patience": 50,
+  "save_best": false,
+  "save_last_n_models": 10,
+  "batch_size": 1,
+  "validation_batch_size": 1,
+  "model_name": "UNet",
+  "model_kwargs": {
+    "base_width":  32,
+    "encoder_blocks": [2, 2, 2, 2, 2],
+    "decoder_mirrors_encoder": false,
+    "input_shape": [80, 192, 128],
+    "activation": "sigmoid"
+  },
+  "skip_validation": true,
+  "iterations_per_epoch": 1,
+  "n_outputs": 1,
+  "sequence": "WholeVolumeSegmentationDataset",
+  "sequence_kwargs": {
+    "normalization": "zero_mean",
+    "crop": true,
+    "interpolation": "linear",
+    "labels": [1],
+    "add_contours": false,
+    "use_label_hierarchy": true
+  },
+  "additional_training_args": {
+    "augment_scale_std": 0.1,
+    "augment_scale_probability": 0.25,
+    "additive_noise_std": 0.1,
+    "additive_noise_probability": 0.25,
+    "augment_blur_mean": 1.5,
+    "augment_blur_std":  0.5,
+    "augment_blur_probability": 0.25,
+    "augment_translation_std": 0.05,
+    "augment_translation_probability": 0.1,
+    "flip_left_right_probability": 0.5,
+    "random_permutation_probability": null
+  },
+  "additional_validation_args": {
+    "random_permutation_probability": null
+  }
+}

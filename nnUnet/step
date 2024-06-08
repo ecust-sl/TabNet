@@ -1,0 +1,8 @@
+1.copy_data
+2.jsonfile
+3.convert_MSD
+4.plan_and_preprocess_entrypoints #modify dataset_id in line 112 [504]
+5. nnUNetv2_train 505 3d_fullres 0 --npz   #  cmd  epoch,batchsize modify in nnUNetTrainer in nnunetv2.training.nnUNetTraining
+6.evaluate_predictions_test.py
+7.get_score_test.py
+
