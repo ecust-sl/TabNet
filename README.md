@@ -20,3 +20,6 @@ You need to put the dataset in the Task504_All folder and meet the following dir
 
 Traditional model training：python traditional_classify_binary.py
 Out model training：python tabUnet_KF_map.py
+
+##Tip
+For more information about the use of SVR_LSM you can refer to the following link：https://github.com/dmirman-zz/SVR-LSM
